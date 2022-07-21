@@ -10,14 +10,12 @@ function Footer() {
         <div className="grid gap-16 row-gap-10 mb-8 lg:grid-cols-6">
           <div className="md:max-w-md lg:col-span-2">
             <div className="flex items-center gap-2 text-white">
-              <Link href="/">
-                <Image
-                  src={logo}
-                  width={60}
-                  height={60}
-                  className="cursor-pointer"
-                />
-              </Link>
+              <Image
+                src={logo}
+                width={60}
+                height={60}
+                className="cursor-pointer"
+              />
               <p className="text-xl">Innocre</p>
             </div>
             <div className="mt-4 lg:max-w-sm">

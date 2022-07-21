@@ -7,13 +7,13 @@ import Link from "next/link";
 const BuyModal = ({ close, buyTokens }) => {
   const styles = {
     container: `h-full w-full flex flex-col z-50 text-white bg-gray-900`,
-    closeX: `w-full h-[50px] flex items-center justify-end mb-[20px]`,
-    title: `text-3xl font-bold flex flex-1 items-center mt-[10px] justify-center mb-[20px]`,
+    closeX: `w-full h-[50px] flex items-center justify-end z-50`,
+    title: `text-3xl font-bold flex flex-1 items-center mt-[10px] justify-center -mt-[30px] mb-[20px]`,
     content: `flex w-full mb-[20px] text-xl justify-center`,
-    input: `w-[50%] h-[50px] bg-[#f7f6f2] rounded-lg p-[10px] flex mx-auto`,
-    inputBox: `w-full h-full flex items-center justify-center bg-[#f7f6f2] focus:outline-none text-black`,
+    input: `w-[50%] h-[50px] bg-[#f7f6f2] rounded-lg p-4 flex mx-auto`,
+    inputBox: `w-full h-full flex items-center justify-center bg-[#f7f6f2] focus:outline-none text-black text-sm`,
     price: `w-full h-full flex justify-center items-center mt-[20px] font-bold text-3xl`,
-    buyBtn: `w-[20%] h-[50px] bg-[#000] mt-[20px] rounded-lg p-[10px] flex mx-auto text-white justify-center items-center cursor-pointer bg-white text-black font-bold`,
+    buyBtn: `w-[20%] h-[50px] bg-[#000] mt-[20px] rounded-lg p-[10px] flex mx-auto text-white justify-center items-center cursor-pointer bg-[#65c4ff] text-black border-4 border-gray-600 font-bold`,
     loaderContainer: `w-full h-[500px] flex items-center justify-center`,
     loader: `w-full h-full flex items-center justify-center`,
     etherscan: `w-full h-full flex items-center justify-center text-green-500 text-2xl mt-[20px] font-bold cursor-pointer`,

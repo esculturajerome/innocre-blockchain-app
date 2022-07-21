@@ -11,7 +11,6 @@ const Cards = () => {
   });
 
   const { assets } = useContext(InnocreContext);
-
   return (
     <div className="w-full mx-auto px-4 lg:px-12 max-w-[1600px]">
       <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 pt-8">
@@ -19,7 +18,7 @@ const Cards = () => {
           {assets.map((item) => {
             let asset = item.attributes;
 
-            return <Card key={item.id} item={item.attributes} />;
+            return <Card key={item.id} item={item} />;
           })}
         </animated.div>
       </div>

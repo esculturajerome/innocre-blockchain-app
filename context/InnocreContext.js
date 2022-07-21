@@ -2,6 +2,7 @@ import { createContext, useState, useEffect } from "react";
 import { useMoralis, useMoralisQuery } from "react-moralis";
 import { innocreAbi, innocreCoinAddress } from "../lib/constants";
 import { ethers } from "ethers";
+import { getAllAssets } from "../assets/assets";
 
 export const InnocreContext = createContext();
 
@@ -48,7 +49,7 @@ export const InnocreProvider = ({ children }) => {
   }, [userData, assetsData, assetsDataIsLoading, userDataIsLoading]);
   useEffect(() => {
     getAssets();
-  }, [assetsData]);
+  }, []);
 
   useEffect(async () => {
     if (!isWeb3Enabled) {
@@ -188,18 +189,23 @@ export const InnocreProvider = ({ children }) => {
     }
   };
 
-  const getAssets = async () => {
-    try {
-      await enableWeb3();
-      // const query = new Moralis.Query("Assets");
-      // const results = await query.find();
-      if (isWeb3Enabled) {
-        setAssets(assetsData);
-      }
-    } catch (error) {
-      console.log(error);
-    }
+  const getAssets = () => {
+    const data = getAllAssets();
+    setAssets(data);
   };
+
+  // const getAssets = async () => {
+  //   try {
+  //     await enableWeb3();
+  //     // const query = new Moralis.Query("Assets");
+  //     // const results = await query.find();
+  //     if (isWeb3Enabled) {
+  //       setAssets(assetsData);
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   const listenToUpdates = async () => {
     let query = new Moralis.Query("EthTransactions");

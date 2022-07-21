@@ -5,13 +5,13 @@ import moment from "moment";
 import { InnocreContext } from "../context/InnocreContext";
 const Transaction = ({ item }) => {
   const styles = {
-    container: ` w-[40%] flex flex-col border-[#d6d7d9] border-2 rounded-lg shadow-lg`,
-    top: `flex w-full h-[80px] bg-[#f0f1f3] p-[20px] pr-[80px] gap-[80px]`,
-    topHeaderText: `text lg text-left flex items-center`,
+    container: ` `,
+    top: ``,
+    topHeaderText: ``,
     topHeaderEndText: `text lg flex items-center  flex-row p-[30px]`,
-    content: `flex flex-col w-full h-[400px] gap-[20px] p-[20px] flex-1`,
+    content: ``,
     date: `text-xl font-bold`,
-    item: `flex flex-row gap-[20px] w-full`,
+    item: ``,
     nameContainer: `flex flex-col justify-end`,
     itemName: `text-mg font-bold flex ml-[10px]`,
     buyAgainBtn: `bg-[#ffd713] font-bold rounded-full p-[10px] h-[40px] w-[200px] cursor-pointer text-[#3a2802] text-center mb-[5px] mt-[10px]`,
@@ -24,8 +24,11 @@ const Transaction = ({ item }) => {
     <>
       {item.map((asset, index) => {
         return (
-          <div className={styles.container} key={index}>
-            <div className={styles.top}>
+          <div
+            className="w-[40%] flex flex-col border-[#d6d7d9] border-2 rounded-lg shadow-lg"
+            key={index}
+          >
+            <div className="flex w-full h-[80px] bg-[#f0f1f3] p-[20px] pr-[80px] gap-[80px]">
               <div className="flex w-full gap-[80px]">
                 <div className={styles.topHeaderText}>
                   ORDER PLACED <br />
@@ -41,11 +44,8 @@ const Transaction = ({ item }) => {
                 </div>
               </div>
             </div>
-            <div className={styles.content}>
-              <div className={styles.date}>
-                Bought on {moment(asset.purchaseDate).format("MMMM Do")}
-              </div>
-              <div className={styles.item}>
+            <div className="flex flex-col w-full h-[400px] gap-[20px] p-[20px] flex-1 bg-white">
+              <div className="flex flex-row gap-[20px] w-full">
                 <Image
                   className="object-cover"
                   src={asset.src}
@@ -54,9 +54,11 @@ const Transaction = ({ item }) => {
                   width={100}
                 />
                 <div className={styles.nameContainer}>
+                  <div className={styles.date}>
+                    Bought on {moment(asset.purchaseDate).format("MMMM Do")}
+                  </div>
                   <div className={styles.itemName}>{asset.name}</div>
                   <div className="flex flex-row items-center justify-center gap-4">
-                    <div className={styles.buyAgainBtn}>Buy it Again</div>
                     <Link href={`${asset.etherscanLink}`}>
                       <a target="_blank" rel="noopener">
                         <div className={styles.etherscanBtn}>Etherscan</div>

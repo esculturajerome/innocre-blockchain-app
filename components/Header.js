@@ -53,8 +53,13 @@ const Header = () => {
                     height={40}
                     width={40}
                   />
-                  <div className="text-white text-sm whitespace-nowrap pl-3">
-                    Welcome! {username}
+                  <div className=" pl-3">
+                    <div className="text-white font-bold text-sm whitespace-nowrap">
+                      Welcome! {username}
+                    </div>
+                    <p className="text-[#65c4ff] text-sm cursor-pointer">
+                      View Transaction history
+                    </p>
                   </div>
                 </div>
               ) : (
@@ -95,10 +100,10 @@ const Header = () => {
               {username && balance && (
                 <div className="flex items-center">
                   <div
-                    className="cursor-pointer bg-white rounded-full flex  items-center "
+                    className="cursor-pointer bg-gray-900 text-[#65c4ff] border-2 border-[#65c4ff] rounded-full flex  items-center "
                     onClick={openModal}
                   >
-                    <p className="rounded-full border-gray-100 mr-2 border-2 px-2  py-1 font-bold flex items-center gap-1">
+                    <p className="rounded-full mr-2 px-2  py-1 font-bold flex items-center gap-1">
                       {balance}
                       <FaCoins />
                     </p>
@@ -113,13 +118,13 @@ const Header = () => {
           )}
         </div>
         {isAuthenticated && (
-          <div className="flex justify-between items-center mx-auto mt-3 w-[90%] lg:hidden">
+          <div className="flex justify-between items-center mx-auto mt-3 w-[90%] lg:hidden border-t border-gray-700 pt-4 pb-2">
             <div className="flex items-center justify-center -ml-4">
               <ConnectButton />
             </div>
             <div>
               <button
-                className="text-sm bg-white  py-2 px-3 rounded-xl text-[#2E7DAF] font-bold cursor-pointer"
+                className="text-sm bg-gray-800  py-2 px-3 rounded-xl text-[#65c4ff] font-bold cursor-pointer"
                 onClick={openModal}
               >
                 Buy Innocre Coins
@@ -132,7 +137,7 @@ const Header = () => {
         )}
 
         {/* large */}
-        <div className="grid w-full max-w-[1600px] mx-auto grid-cols-3 items-center py-1">
+        <div className="hidden lg:grid w-full max-w-[1600px] mx-auto grid-cols-3 items-center py-1">
           {/* <div className="justify-between max-w-[1600px] mx-auto items-center py-1 hidden lg:flex"> */}
           <div className="ml-12 ">
             <Link href="/">
@@ -157,19 +162,16 @@ const Header = () => {
 
           {isAuthenticated ? (
             <div className="flex items-center justify-end">
-              <p
-                className="mr-4 text-sm cursor-pointer text-white"
-                onClick={openModal}
-              >
-                Buy more coins
+              <p className="mr-4 text-sm cursor-pointer font-bold text-[#65c4ff] ">
+                View transaction history
               </p>
               <div
-                className="flex rounded-full border-2 mr-12 p-1"
+                className="flex rounded-full border-[#65c4ff] border-2 mr-12 p-1"
                 onClick={openModal}
               >
-                <div className="flex items-center ">
-                  <div className="cursor-pointer bg-white rounded-full flex  items-center ">
-                    <p className="rounded-full border-gray-100 mr-2  px-2  py-1 font-bold flex items-center gap-1 text-lg">
+                <div className="flex items-center text-[#65c4ff]">
+                  <div className="cursor-pointer rounded-full flex  items-center ">
+                    <p className="rounded-full  mr-2  px-2  py-1 font-bold flex items-center gap-1 text-lg">
                       {balance}
                       <FaCoins />
                     </p>
@@ -185,7 +187,7 @@ const Header = () => {
               </div>
             </div>
           ) : (
-            <div className="mr-8 z-50 flex justify-end">
+            <div className="mr-8 z-50 flex justify-end text-white">
               <ConnectButton />
             </div>
           )}
