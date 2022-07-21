@@ -1,17 +1,17 @@
-const hre = require('hardhat')
+const hre = require("hardhat");
 
 async function main() {
-  const amazonCoinFactory = await hre.ethers.getContractFactory('AmazonCoin')
-  const amazonCoin = await amazonCoinFactory.deploy()
+  const amazonCoinFactory = await hre.ethers.getContractFactory("InnocreCoin");
+  const innocreCoin = await innocreCoinFactory.deploy();
 
-  await amazonCoin.deployed()
+  await innocreCoin.deployed();
 
-  console.log('Amazon Coin deployed to:', amazonCoin.address)
+  console.log("Innocre Coin deployed to:", innocreCoin.address);
 }
 
 main()
   .then(() => process.exit(0))
-  .catch(error => {
-    console.error(error)
-    process.exit(1)
-  })
+  .catch((error) => {
+    console.error(error);
+    process.exit(1);
+  });

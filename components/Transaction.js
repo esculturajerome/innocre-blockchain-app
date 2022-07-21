@@ -1,8 +1,8 @@
-import React, { useEffect, useContext } from 'react'
-import Link from 'next/link'
-import Image from 'next/image'
-import moment from 'moment'
-import { AmazonContext } from '../context/AmazonContext'
+import React, { useEffect, useContext } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import moment from "moment";
+import { InnocreContext } from "../context/InnocreContext";
 const Transaction = ({ item }) => {
   const styles = {
     container: ` w-[40%] flex flex-col border-[#d6d7d9] border-2 rounded-lg shadow-lg`,
@@ -16,9 +16,9 @@ const Transaction = ({ item }) => {
     itemName: `text-mg font-bold flex ml-[10px]`,
     buyAgainBtn: `bg-[#ffd713] font-bold rounded-full p-[10px] h-[40px] w-[200px] cursor-pointer text-[#3a2802] text-center mb-[5px] mt-[10px]`,
     etherscanBtn: `font-bold rounded-full h-[40px] w-[150px] cursor-pointer text-[#3a2802] text-center border-2 border-[#ffd713] flex justify-center items-center`,
-  }
+  };
 
-  const { username } = useContext(AmazonContext)
+  const { username } = useContext(InnocreContext);
 
   return (
     <>
@@ -26,14 +26,14 @@ const Transaction = ({ item }) => {
         return (
           <div className={styles.container} key={index}>
             <div className={styles.top}>
-              <div className='flex w-full gap-[80px]'>
+              <div className="flex w-full gap-[80px]">
                 <div className={styles.topHeaderText}>
                   ORDER PLACED <br />
-                  {moment(asset.purchaseDate).format('MMMM Do YYYY')}
+                  {moment(asset.purchaseDate).format("MMMM Do YYYY")}
                 </div>
                 <div className={styles.topHeaderText}>
                   TOTAL <br />
-                  {asset.price} AC
+                  {asset.price} IC
                 </div>
                 <div className={styles.topHeaderText}>
                   SHIP TO <br />
@@ -43,22 +43,22 @@ const Transaction = ({ item }) => {
             </div>
             <div className={styles.content}>
               <div className={styles.date}>
-                Bought on {moment(asset.purchaseDate).format('MMMM Do')}
+                Bought on {moment(asset.purchaseDate).format("MMMM Do")}
               </div>
               <div className={styles.item}>
                 <Image
-                  className='object-cover'
+                  className="object-cover"
                   src={asset.src}
-                  alt='item'
+                  alt="item"
                   height={100}
                   width={100}
                 />
                 <div className={styles.nameContainer}>
                   <div className={styles.itemName}>{asset.name}</div>
-                  <div className='flex flex-row items-center justify-center gap-4'>
+                  <div className="flex flex-row items-center justify-center gap-4">
                     <div className={styles.buyAgainBtn}>Buy it Again</div>
                     <Link href={`${asset.etherscanLink}`}>
-                      <a target='_blank' rel='noopener'>
+                      <a target="_blank" rel="noopener">
                         <div className={styles.etherscanBtn}>Etherscan</div>
                       </a>
                     </Link>
@@ -67,10 +67,10 @@ const Transaction = ({ item }) => {
               </div>
             </div>
           </div>
-        )
+        );
       })}
     </>
-  )
-}
+  );
+};
 
-export default Transaction
+export default Transaction;

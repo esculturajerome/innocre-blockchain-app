@@ -1,9 +1,9 @@
-import React, { useContext, useEffect } from 'react'
-import Sidebar from '../components/Sidebar'
-import Header from '../components/Header'
-import { AmazonContext } from '../context/AmazonContext'
+import React, { useContext, useEffect } from "react";
+import Sidebar from "../components/Sidebar";
+import Header from "../components/Header";
+import { InnocreContext } from "../context/InnocreContext";
 
-import Transaction from '../components/Transaction'
+import Transaction from "../components/Transaction";
 
 const history = () => {
   const styles = {
@@ -12,8 +12,8 @@ const history = () => {
     tableContainer: `w-full h-full flex flex-col p-[100px] justify-center`,
     pageTitle: `text-2xl font-bold text-left mt-[50px] mb-[30px]`,
     transactions: `flex gap-[50px] flex-row flex-wrap`,
-  }
-  const { ownedItems } = useContext(AmazonContext)
+  };
+  const { ownedItems } = useContext(InnocreContext);
   // useEffect(() => {
   //   console.log(ownedItems)
   // }, [])
@@ -32,13 +32,13 @@ const history = () => {
           )}
           <div className={styles.transactions}>
             {ownedItems.map((item, index) => {
-              return <Transaction key={index} item={item} index={index} />
+              return <Transaction key={index} item={item} index={index} />;
             })}
           </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default history
+export default history;

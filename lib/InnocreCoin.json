@@ -1,7 +1,7 @@
 {
   "_format": "hh-sol-artifact-1",
-  "contractName": "AmazonCoin",
-  "sourceName": "contracts/AmazonCoin.sol",
+  "contractName": "innocreCoin",
+  "sourceName": "contracts/innocreCoin.sol",
   "abi": [
     {
       "inputs": [],
