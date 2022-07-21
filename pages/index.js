@@ -8,7 +8,7 @@ import Sidebar from "../components/Sidebar";
 
 export default function Home() {
   return (
-    <div className="font-Roboto bg-black">
+    <div className="font-bebas bg-black">
       <Head>
         <title>Innocre Blockchain Store</title>
         <meta

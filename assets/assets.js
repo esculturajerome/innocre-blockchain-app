@@ -67,9 +67,9 @@ const NFT_ASSETS = [
   },
   {
     id: 12,
-    name: "Joystick",
+    name: "AmoungUs",
     price: "2",
-    src: "https://media1.giphy.com/media/KluRpaqe0ZyyFRfDzi/200w.webp?cid=ecf05e47rccsxlom4qtusfh8jkwckh0pj8aqavl4wedr0qrz&rid=200w.webp&ct=g",
+    src: "https://media3.giphy.com/media/RtdRhc7TxBxB0YAsK6/giphy.gif?cid=ecf05e47n0q34i8l16p8zwezryf0iyur1uyaeh4uhhu85it6&rid=giphy.gif&ct=g",
   },
   {
     id: 13,

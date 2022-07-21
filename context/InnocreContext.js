@@ -3,6 +3,7 @@ import { useMoralis, useMoralisQuery } from "react-moralis";
 import { innocreAbi, innocreCoinAddress } from "../lib/constants";
 import { ethers } from "ethers";
 import { getAllAssets } from "../assets/assets";
+import { useRouter } from "next/router";
 
 export const InnocreContext = createContext();
 
@@ -19,6 +20,7 @@ export const InnocreProvider = ({ children }) => {
   const [assets, setAssets] = useState([]);
   const [recentTransactions, setRecentTransactions] = useState([]);
   const [ownedItems, setOwnedItems] = useState([]);
+  const router = useRouter();
 
   const {
     authenticate,
@@ -122,6 +124,7 @@ export const InnocreProvider = ({ children }) => {
         user.set("nickname", nickname);
         user.save();
         setNickname("");
+        router.reload();
       } else {
         console.log("Can't set empty nickname");
       }

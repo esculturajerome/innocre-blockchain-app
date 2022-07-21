@@ -19,17 +19,10 @@ function Footer() {
               <p className="text-xl">Innocre</p>
             </div>
             <div className="mt-4 lg:max-w-sm">
-              <p className="text-sm text-white">
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                accusantium doloremque laudantium, totam rem aperiam.
-              </p>
-              <p className="mt-4 text-sm text-white">
-                Eaque ipsa quae ab illo inventore veritatis et quasi architecto
-                beatae vitae dicta sunt explicabo.
-              </p>
+              <p className="text-sm text-white">Innovative Creation 2022</p>
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-5 row-gap-8 lg:col-span-4 md:grid-cols-4 text-white">
+          <div className=" grid-cols-2 gap-5 row-gap-8 lg:col-span-4 md:grid-cols-4 text-white hidden">
             <div>
               <p className="font-semibold tracking-wide text-teal-accent-400">
                 Category

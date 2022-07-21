@@ -7,13 +7,13 @@ import Link from "next/link";
 const BuyModal = ({ close, buyTokens }) => {
   const styles = {
     container: `h-full w-full flex flex-col z-50 text-white bg-gray-900`,
-    closeX: `w-full h-[50px] flex items-center justify-end z-50`,
-    title: `text-3xl font-bold flex flex-1 items-center mt-[10px] justify-center -mt-[30px] mb-[20px]`,
+    closeX: ``,
+    title: ``,
     content: `flex w-full mb-[20px] text-xl justify-center`,
     input: `w-[50%] h-[50px] bg-[#f7f6f2] rounded-lg p-4 flex mx-auto`,
     inputBox: `w-full h-full flex items-center justify-center bg-[#f7f6f2] focus:outline-none text-black text-sm`,
     price: `w-full h-full flex justify-center items-center mt-[20px] font-bold text-3xl`,
-    buyBtn: `w-[20%] h-[50px] bg-[#000] mt-[20px] rounded-lg p-[10px] flex mx-auto text-white justify-center items-center cursor-pointer bg-[#65c4ff] text-black border-4 border-gray-600 font-bold`,
+    buyBtn: ``,
     loaderContainer: `w-full h-[500px] flex items-center justify-center`,
     loader: `w-full h-full flex items-center justify-center`,
     etherscan: `w-full h-full flex items-center justify-center text-green-500 text-2xl mt-[20px] font-bold cursor-pointer`,
@@ -49,7 +49,7 @@ const BuyModal = ({ close, buyTokens }) => {
         </>
       ) : (
         <>
-          <div className={styles.closeX}>
+          <div className="w-full h-[50px] flex items-center justify-end z-50">
             <IoIosClose
               onClick={() => {
                 close();
@@ -61,7 +61,9 @@ const BuyModal = ({ close, buyTokens }) => {
               className="cursor-pointer"
             />
           </div>
-          <div className={styles.title}>Buy More Innocre Coins Here!</div>
+          <div className="text-3xl font-bold flex flex-1 items-center mt-[5px] justify-center lg:-mt-[30px] mb-[20px]">
+            Buy More Innocre Coins Here!
+          </div>
           <div className={styles.content}>
             Select how many tokens you would like to buy.
           </div>
@@ -79,7 +81,7 @@ const BuyModal = ({ close, buyTokens }) => {
             {tokenAmount && tokenAmount > 0 ? amountDue + "ETH" : "0 ETH"}
           </div>
           <button
-            className={styles.buyBtn}
+            className="w-[20%] h-[50px]  mt-[20px] rounded-lg p-[10px] flex mx-auto text-white justify-center items-center cursor-pointer bg-[#65c4ff]  border-4 border-gray-600 font-bold min-w-[100px]"
             disabled={!tokenAmount || tokenAmount < 0}
             onClick={() => {
               setIsLoading(true);

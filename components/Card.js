@@ -15,7 +15,7 @@ const Card = ({ item }) => {
             } w-full top-1/2 left-0 z-10 -translate-y-[50%]`}
           >
             <div className="p-5 text-center opacity-0 scale-125 group-hover:opacity-100 group-hover:scale-100 transform duration-300">
-              <p className="text-white/80 font-light capitalize">
+              <p className="text-white/80 font-light capitalize text-2xl">
                 Click to buy
               </p>
             </div>

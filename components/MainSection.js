@@ -35,7 +35,7 @@ export default function MainSection() {
   }, [vantaEffect]);
   return (
     <div
-      className="h-full  bg-black min-h-[100vh] pb-[50px]"
+      className="h-full  bg-black min-h-[700px] lg:pb-[50px]"
       ref={vantaRef}
       id="main"
     >

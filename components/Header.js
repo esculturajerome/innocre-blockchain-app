@@ -17,16 +17,6 @@ import "react-simple-hook-modal/dist/styles.css";
 import BuyModal from "./BuyModal";
 
 const Header = () => {
-  const styles = {
-    container: `h-[60px] w-full flex items-center gap-5 px-16`,
-    logo: `flex items-center ml-[20px] cursor-pointer flex-1`,
-    search: `p-[25px] mr-[30px] w-[400px] h-[40px] bg-white rounded-full shadow-lg flex flex items-center border border-black`,
-    searchInput: `bg-transparent focus:outline-none border-none flex-1 items-center flex`,
-    menu: `flex items-center gap-6`,
-    menuItem: `flex items-center text-md font-bold cursor-pointer`,
-    coins: `ml-[10px]`,
-  };
-
   const {
     balance,
     buyTokens,
@@ -68,7 +58,7 @@ const Header = () => {
                     <input
                       type="text"
                       placeholder="Set Username...."
-                      className="px-4 py-2 bg-transparent focus:outline-none"
+                      className="px-4 py-2 bg-transparent focus:outline-none text-white"
                       value={nickname}
                       onChange={(e) => setNickname(e.target.value)}
                     />
@@ -89,12 +79,6 @@ const Header = () => {
                       } w-10 h-10  `}
                     />
                   </div>
-                  {/* <button
-                    className="bg-white px-4 rounded-md py-2 hover:scale-105 hover:bg-white/50 transition-all duration-200"
-                    onClick={handleSetUsername}
-                  >
-                    Set Nickname
-                  </button> */}
                 </div>
               )}
               {username && balance && (
@@ -162,29 +146,66 @@ const Header = () => {
 
           {isAuthenticated ? (
             <div className="flex items-center justify-end">
-              <p className="mr-4 text-sm cursor-pointer font-bold text-[#65c4ff] ">
-                View transaction history
-              </p>
-              <div
-                className="flex rounded-full border-[#65c4ff] border-2 mr-12 p-1"
-                onClick={openModal}
-              >
-                <div className="flex items-center text-[#65c4ff]">
-                  <div className="cursor-pointer rounded-full flex  items-center ">
-                    <p className="rounded-full  mr-2  px-2  py-1 font-bold flex items-center gap-1 text-lg">
-                      {balance}
-                      <FaCoins />
+              {username ? (
+                <>
+                  <div className="text-right mr-4">
+                    <div className="text-white font-bold text-sm whitespace-nowrap">
+                      Welcome! {username}
+                    </div>
+                    <p className=" text-sm cursor-pointer font-bold text-[#65c4ff] ">
+                      View transaction history
                     </p>
                   </div>
+                  <div
+                    className="flex rounded-full border-[#65c4ff] border-2 mr-12 p-1"
+                    onClick={openModal}
+                  >
+                    <div className="flex items-center text-[#65c4ff]">
+                      <div className="cursor-pointer rounded-full flex  items-center ">
+                        <p className="rounded-full  mr-2  px-2  py-1 font-bold flex items-center gap-1 text-lg">
+                          {balance}
+                          <FaCoins />
+                        </p>
+                      </div>
+                    </div>
+                    <Image
+                      src={`https://avatars.dicebear.com/api/pixel-art/${username}.svg`}
+                      alt="profile"
+                      className="w-full  rounded-full min-w-[80px] p-2"
+                      height={35}
+                      width={35}
+                    />
+                  </div>
+                </>
+              ) : (
+                <div className="flex justify-between w-full items-center px-1 mr-12">
+                  <div>
+                    <input
+                      type="text"
+                      placeholder="Set Username...."
+                      className="px-4 py-2 bg-transparent focus:outline-none text-white"
+                      value={nickname}
+                      onChange={(e) => setNickname(e.target.value)}
+                    />
+                  </div>
+                  <div
+                    onClick={handleSetUsername}
+                    className={`${
+                      nickname.length < 1
+                        ? ""
+                        : "cursor-pointer hover:scale-105"
+                    } border-2 rounded-full  duration-150`}
+                  >
+                    <FaCheckCircle
+                      className={`${
+                        nickname.length < 1
+                          ? "text-gray-500"
+                          : "text-yellow-500"
+                      } w-10 h-10  `}
+                    />
+                  </div>
                 </div>
-                <Image
-                  src={`https://avatars.dicebear.com/api/pixel-art/${username}.svg`}
-                  alt="profile"
-                  className="w-full  rounded-full min-w-[80px] p-2"
-                  height={35}
-                  width={35}
-                />
-              </div>
+              )}
             </div>
           ) : (
             <div className="mr-8 z-50 flex justify-end text-white">
