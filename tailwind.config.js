@@ -5,6 +5,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        main: "#65c4ff",
+      },
       fontFamily: {
         bebas: ["Bebas Neue", "cursive"],
       },

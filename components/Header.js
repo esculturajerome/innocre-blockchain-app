@@ -15,6 +15,7 @@ import {
 } from "react-simple-hook-modal";
 import "react-simple-hook-modal/dist/styles.css";
 import BuyModal from "./BuyModal";
+import { useRouter } from "next/router";
 
 const Header = () => {
   const {
@@ -28,6 +29,13 @@ const Header = () => {
     handleSetUsername,
   } = useContext(InnocreContext);
   const { openModal, isModalOpen, closeModal } = useModal();
+
+  const router = useRouter();
+  const handleRedirect = (e, url) => {
+    e.preventDefault();
+    router.push(url);
+  };
+
   return (
     <ModalProvider>
       <div className="bg-black shadow-md py-2">
@@ -39,17 +47,21 @@ const Header = () => {
                   <Image
                     src={`https://avatars.dicebear.com/api/pixel-art/${username}.svg`}
                     alt="profile"
-                    className="w-full  rounded-full min-w-[80px]"
+                    className="w-full  rounded-full min-w-[80px] cursor-pointer"
                     height={40}
                     width={40}
+                    onClick={(e) => handleRedirect(e, "/")}
                   />
                   <div className=" pl-3">
-                    <div className="text-white font-bold text-sm whitespace-nowrap">
+                    <div className="text-white font-bold text-sm whitespace-nowrap ">
                       Welcome! {username}
                     </div>
-                    <p className="text-[#65c4ff] text-sm cursor-pointer">
+                    <a
+                      href="/history"
+                      className="text-main text-sm cursor-pointer"
+                    >
                       View Transaction history
-                    </p>
+                    </a>
                   </div>
                 </div>
               ) : (
@@ -84,7 +96,7 @@ const Header = () => {
               {username && balance && (
                 <div className="flex items-center">
                   <div
-                    className="cursor-pointer bg-gray-900 text-[#65c4ff] border-2 border-[#65c4ff] rounded-full flex  items-center "
+                    className="cursor-pointer bg-gray-900 text-main border-2 border-main rounded-full flex  items-center "
                     onClick={openModal}
                   >
                     <p className="rounded-full mr-2 px-2  py-1 font-bold flex items-center gap-1">
@@ -108,7 +120,7 @@ const Header = () => {
             </div>
             <div>
               <button
-                className="text-sm bg-gray-800  py-2 px-3 rounded-xl text-[#65c4ff] font-bold cursor-pointer"
+                className="text-sm bg-gray-800  py-2 px-2 rounded-xl text-main font-bold cursor-pointer"
                 onClick={openModal}
               >
                 Buy Innocre Coins
@@ -123,18 +135,16 @@ const Header = () => {
         {/* large */}
         <div className="hidden lg:grid w-full max-w-[1600px] mx-auto grid-cols-3 items-center py-1">
           {/* <div className="justify-between max-w-[1600px] mx-auto items-center py-1 hidden lg:flex"> */}
-          <div className="ml-12 ">
-            <Link href="/">
-              <div className="text-white flex items-center gap-2 ">
-                <Image
-                  src={logo}
-                  width={40}
-                  height={40}
-                  className="cursor-pointer"
-                />
-                <p className="text-xl cursor-pointer">Innocre</p>
-              </div>
-            </Link>
+          <div className="ml-12 " onClick={(e) => handleRedirect(e, "/")}>
+            <div className="text-white flex items-center gap-2 ">
+              <Image
+                src={logo}
+                width={40}
+                height={40}
+                className="cursor-pointer"
+              />
+              <p className="text-xl cursor-pointer">Innocre</p>
+            </div>
           </div>
           {isAuthenticated ? (
             <div className="flex  justify-center">
@@ -152,15 +162,18 @@ const Header = () => {
                     <div className="text-white font-bold text-sm whitespace-nowrap">
                       Welcome! {username}
                     </div>
-                    <p className=" text-sm cursor-pointer font-bold text-[#65c4ff] ">
+                    <a
+                      href="/history"
+                      className=" text-sm cursor-pointer font-bold text-main"
+                    >
                       View transaction history
-                    </p>
+                    </a>
                   </div>
                   <div
-                    className="flex rounded-full border-[#65c4ff] border-2 mr-12 p-1"
+                    className="flex rounded-full border-main border-2 mr-12 p-1"
                     onClick={openModal}
                   >
-                    <div className="flex items-center text-[#65c4ff]">
+                    <div className="flex items-center text-main">
                       <div className="cursor-pointer rounded-full flex  items-center ">
                         <p className="rounded-full  mr-2  px-2  py-1 font-bold flex items-center gap-1 text-lg">
                           {balance}

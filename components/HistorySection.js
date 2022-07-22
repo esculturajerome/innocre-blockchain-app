@@ -19,7 +19,7 @@ export default function HistorySection() {
           mouseControls: true,
           touchControls: true,
           gyroControls: false,
-          minHeight: 200.0,
+          minHeight: 100.0,
           minWidth: 200.0,
           scale: 1.0,
           color1: 0x0,
@@ -34,8 +34,12 @@ export default function HistorySection() {
 
   const { ownedItems } = useContext(InnocreContext);
   return (
-    <div className="h-[200px]  bg-black  pb-[50px]" ref={vantaRef} id="main">
-      <div className=" w-full h-full flex items-center pl-12 pt-10">
+    <div
+      className="h-[100px] lg:h-[150px] bg-black  pb-[50px] pt-6"
+      ref={vantaRef}
+      id="main"
+    >
+      <div className=" w-full h-full flex items-center justify-center lg:justify-start px-12">
         <h2 className="text-white text-2xl font-bold text-left">
           {ownedItems ? "Purchase History" : "No Purchase History"}
         </h2>

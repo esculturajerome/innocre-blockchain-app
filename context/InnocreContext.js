@@ -116,6 +116,7 @@ export const InnocreProvider = ({ children }) => {
     setEtherscanLink(
       `https://rinkeby.etherscan.io/tx/${receipt.transactionHash}`
     );
+    router.reload();
   };
 
   const handleSetUsername = () => {

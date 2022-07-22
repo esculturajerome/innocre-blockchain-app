@@ -4,20 +4,6 @@ import Image from "next/image";
 import moment from "moment";
 import { InnocreContext } from "../context/InnocreContext";
 const Transaction = ({ item }) => {
-  const styles = {
-    container: ` `,
-    top: ``,
-    topHeaderText: ``,
-    topHeaderEndText: `text lg flex items-center  flex-row p-[30px]`,
-    content: ``,
-    date: `text-xl font-bold`,
-    item: ``,
-    nameContainer: `flex flex-col justify-end`,
-    itemName: `text-mg font-bold flex ml-[10px]`,
-    buyAgainBtn: `bg-[#ffd713] font-bold rounded-full p-[10px] h-[40px] w-[200px] cursor-pointer text-[#3a2802] text-center mb-[5px] mt-[10px]`,
-    etherscanBtn: `font-bold rounded-full h-[40px] w-[150px] cursor-pointer text-[#3a2802] text-center border-2 border-[#ffd713] flex justify-center items-center`,
-  };
-
   const { username } = useContext(InnocreContext);
 
   return (
@@ -25,46 +11,56 @@ const Transaction = ({ item }) => {
       {item.map((asset, index) => {
         return (
           <div
-            className="w-[40%] flex flex-col border-[#d6d7d9] border-2 rounded-lg shadow-lg"
+            className="w-full flex flex-col border-main border-2 max-w-[450px] mx-auto"
             key={index}
           >
-            <div className="flex w-full h-[80px] bg-[#f0f1f3] p-[20px] pr-[80px] gap-[80px]">
-              <div className="flex w-full gap-[80px]">
-                <div className={styles.topHeaderText}>
-                  ORDER PLACED <br />
-                  {moment(asset.purchaseDate).format("MMMM Do YYYY")}
+            <div className="flex w-full bg-black text-white p-4 pr-8 ">
+              <div className="w-full grid grid-cols-3 h-full">
+                <div className="flex flex-col items-start">
+                  <p className="font-bold">ORDER PLACED</p>
+                  <p className="text-sm tracking-wider text-main text-white/80">
+                    {moment(asset.purchaseDate).format("MMMM Do YYYY")}
+                  </p>
                 </div>
-                <div className={styles.topHeaderText}>
-                  TOTAL <br />
-                  {asset.price} IC
+                <div className="flex flex-col items-center">
+                  <p className="font-bold">TOTAL</p>
+                  <p className="text-sm tracking-wider text-main text-white/80">
+                    {asset.price} IC
+                  </p>
                 </div>
-                <div className={styles.topHeaderText}>
-                  SHIP TO <br />
-                  {username}
+                <div className="flex flex-col items-end">
+                  <p className="font-bold">SHIP TO</p>
+                  <p className="text-sm tracking-wider text-main text-white/80">
+                    {username}
+                  </p>
                 </div>
               </div>
             </div>
-            <div className="flex flex-col w-full h-[400px] gap-[20px] p-[20px] flex-1 bg-white">
-              <div className="flex flex-row gap-[20px] w-full">
+            <div className="flex w-full gap-2 sm:gap-4 bg-gray-800">
+              <div>
                 <Image
                   className="object-cover"
                   src={asset.src}
                   alt="item"
-                  height={100}
-                  width={100}
+                  height={200}
+                  width={200}
                 />
-                <div className={styles.nameContainer}>
-                  <div className={styles.date}>
-                    Bought on {moment(asset.purchaseDate).format("MMMM Do")}
-                  </div>
-                  <div className={styles.itemName}>{asset.name}</div>
-                  <div className="flex flex-row items-center justify-center gap-4">
-                    <Link href={`${asset.etherscanLink}`}>
-                      <a target="_blank" rel="noopener">
-                        <div className={styles.etherscanBtn}>Etherscan</div>
-                      </a>
-                    </Link>
-                  </div>
+              </div>
+              <div className="flex flex-col justify-center lg:gap-2 text-white min-w-[150px]">
+                <p className="">
+                  Bought on {moment(asset.purchaseDate).format("MMMM Do")}
+                </p>
+                <p className="text-xl lg:text-3xl font-bold flex ml-[10px">
+                  {asset.name}
+                </p>
+                <div className="mt-2">
+                  <Link href={`${asset.etherscanLink}`}>
+                    <a target="_blank" rel="noopener">
+                      <div className="py-1 px-2 font-bold w-[140px] rounded-full cursor-pointer text-main text-center border-2 border-main flex justify-center items-center">
+                        View in Etherscan
+                      </div>
+                    </a>
+                  </Link>
                 </div>
               </div>
             </div>

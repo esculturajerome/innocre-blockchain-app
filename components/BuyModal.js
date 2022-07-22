@@ -81,7 +81,7 @@ const BuyModal = ({ close, buyTokens }) => {
             {tokenAmount && tokenAmount > 0 ? amountDue + "ETH" : "0 ETH"}
           </div>
           <button
-            className="w-[20%] h-[50px]  mt-[20px] rounded-lg p-[10px] flex mx-auto text-white justify-center items-center cursor-pointer bg-[#65c4ff]  border-4 border-gray-600 font-bold min-w-[100px]"
+            className="w-[20%] h-[50px]  mt-[20px] rounded-lg p-[10px] flex mx-auto text-white justify-center items-center cursor-pointer bg-main  border-4 border-gray-600 font-bold min-w-[100px]"
             disabled={!tokenAmount || tokenAmount < 0}
             onClick={() => {
               setIsLoading(true);
