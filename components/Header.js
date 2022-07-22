@@ -96,7 +96,7 @@ const Header = () => {
               )}
             </div>
           ) : (
-            <div className="flex items-center justify-center w-full">
+            <div className="flex items-center justify-center w-full text-white">
               <ConnectButton />
             </div>
           )}
